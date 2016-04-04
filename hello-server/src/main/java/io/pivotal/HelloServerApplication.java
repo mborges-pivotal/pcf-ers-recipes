@@ -1,20 +1,14 @@
-package io.pivotal.pcf.ers.recipes;
+package io.pivotal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-/**
- * Application
- * 
- * @author mborges
- *
- */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class Application {
+public class HelloServerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HelloServerApplication.class, args);
+    }
 }

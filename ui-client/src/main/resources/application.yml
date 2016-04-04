@@ -2,7 +2,10 @@ spring.profiles.active: dev
 
 spring.jpa.hibernate.ddl-auto: update
 
-spring:
-  application:
-    name: recipes
-  
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    enabled: false

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/layout :: head">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/layout :: navigation"></nav>
+
+	<!--  PAGE BODY -->
+	<div class="container" role="main">
+
+		<div class="page-header">
+			<p>&nbsp;</p>
+			<h1>Hello Server</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<p>Talk about config server and how to refresh information</p>
+
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p>
+							Application Name <b
+								th:text="*{applicationName}?: 'running locally'"></b>
+						</p>
+						<p>
+							The instance index is <b id="instanceIndex"
+								th:text="${instanceIndex}"></b>
+						</p>
+						<p>
+							The instance address is <b id="instanceAddress"
+								th:text="${instanceAddr}"></b>
+						</p>
+
+						<p th:if="${inetaddressLocalhost != null}">
+							Local IP address is <b id="inetaddressLocalhost"
+								th:text="${inetaddressLocalhost}"></b>
+						</p>
+
+						<h4>Services</h4>
+						<p th:if="${applicationServices.isEmpty()}">Using embedded H2
+							DB</p>
+						<p th:each="instance : ${applicationServices}">
+							<b><span th:text="${instance.key}">keyvalue</span></b> <span
+								th:text="${instance.value}">num</span> <br />
+						</p>
+
+						<div id="resultsBlock-health"></div>
+						<div id="resultsBlock-info"></div>
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+		</div>
+
+
+	</div>
+	<!--  /.PAGE BODY -->
+
+	<footer th:replace="fragments/layout :: footer" class="footer">
+	</footer>
+
+</body>
+
+</html>
+

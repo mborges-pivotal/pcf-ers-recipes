@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.pivotal.pcf.ers.recipes.client.service.BasicService;
+import io.pivotal.pcf.ers.recipes.client.service.SayHelloService;
 
 /**
  * BasicController
@@ -27,6 +28,9 @@ public class BasicController {
 
 	@Autowired
 	private BasicService attendeeService;
+
+	@Autowired
+	private SayHelloService sayHelloService;
 
 	/**
 	 * INDEX
@@ -54,6 +58,20 @@ public class BasicController {
 		log.info("ui page");
 		addAppEnv(model);
 		return "ui";
+	}
+
+	/**
+	 * hello-server
+	 * 
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/hello-server")
+	public String sayHello(Model model) throws Exception {
+		log.info("hello-server page");
+		model.addAttribute("greeting", sayHelloService.sayHello("test"));
+		return "hello-server";
 	}
 
 	/**
