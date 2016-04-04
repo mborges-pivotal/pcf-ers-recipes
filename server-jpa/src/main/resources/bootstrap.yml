@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: pcf-ers-recipe-server-jpa

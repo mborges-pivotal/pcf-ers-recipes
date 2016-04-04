@@ -1,0 +1,12 @@
+---
+memory: 512MB
+instances: 1
+applications:
+- name: pcf-recipes-server
+  host: pcf-recipes-server-${random-word}
+  path: server-jpa/target/server-jpa-0.0.1-SNAPSHOT.jar
+  services: []
+- name: pcf-recipes-ui
+  host: pcf-recipes-ui-${random-word}
+  path: ui-client/target/ui-client-0.0.1-SNAPSHOT.jar
+  services: []

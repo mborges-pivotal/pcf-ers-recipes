@@ -1,0 +1,6 @@
+spring.profiles.active: dev
+
+spring.jpa.hibernate.ddl-auto: update
+
+server:
+  port: 8081

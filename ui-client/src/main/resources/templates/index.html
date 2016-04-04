@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/layout :: head">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/layout :: navigation"></nav>
+
+	<!--  PAGE BODY -->
+	<div class="container" role="main">
+
+		<div class="page-header">
+			<p>&nbsp;</p>
+			<h1>Welcome!</h1>
+		</div>
+
+		<div class="row ">
+
+			<div class="col-md-12">
+				<p>Let's learn how to quickly build a cloud native application
+					with spring boot!</p>
+				<h4>Getting Started with Pivotal Cloud Foundry</h4>
+				<p>
+					Before you look into this application we recommend you spend 15
+					minutes on the <a
+						href="http://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/introduction"
+						target="_blank">&nbsp;Pivotal Cloud Foundry tutorial.</a> It will
+					teach you the Pivotal Cloud Foundry application deployments
+					concepts.
+				</p>
+				<h4>Recipes</h4>
+				<p>This application packages some simple recipes for getting
+					your cloud native web application started. Think as a template to
+					take you a step closer to realizing your idea.</p>
+				<p>You can use in different ways. You can copy the project and
+					start implementing your own idea or you can use pieces or recipes
+					in your own application.</p>
+				<h4>Let's go</h4>
+				<p>This application has 3 parts: User Interface (UI), Client and
+					Server. The UI and client are packaged in the same project, but we
+					have clear separation to give you the freedom to change the UI
+					framework. The server is a separate project and can stand on its
+					own as a backend for other applications.</p>
+					<p>Let's get started by clicking on the <b>UI menu item</b> above.</p>
+				<p>
+					For more information on Spring Boot. <a
+						href="http://projects.spring.io/spring-boot/" target="_blank">Learn
+						more.</a></p>
+			</div>
+
+		</div>
+
+
+	</div>
+	<!--  /.PAGE BODY -->
+
+	<footer th:replace="fragments/layout :: footer" class="footer">
+	</footer>
+
+	<script th:replace="fragments/layout :: app-instance-script"></script>
+
+</body>
+
+</html>

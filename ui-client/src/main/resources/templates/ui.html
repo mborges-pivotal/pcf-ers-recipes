@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/layout :: head">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/layout :: navigation"></nav>
+
+	<!--  PAGE BODY -->
+	<div class="container" role="main">
+
+		<div class="page-header">
+			<p>&nbsp;</p>
+			<h1>User Interface - UI</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+					The layout and style of this application is all done using <a
+						href="http://getbootstrap.com/components/" target="_blank">&nbsp;Twitter
+						Bootstrap.</a> It is a great way to build beautiful web applications
+					that works on all screens - desktop and mobile. The link above
+					provides you quick access to reusable components for you
+					application.
+				</p>
+				<h4>Spring MVC</h4>
+				<p>
+					The UI is built using Spring MVC and we chose the <a
+						href="http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html"
+						target="_blank">&nbsp;thymeleaf.</a> template engine. Follow the
+					link to understand the syntax as you read the code.
+				</p>
+				<p>
+					The layout has 3 parts: Header, Body and Footer as depicts in the
+					image below. These parts come from the <i><b>layout.html</b></i>
+					file in the <i><b>fragments folder</b></i>
+					(/src/main/resources/templates/fragments). The template pages, or
+					views, are under the <i><b>templates folder</b></i>. They use the
+					fragments from the layout page and mostly fill in the body part.
+				</p>
+				<img src="/images/layout.png"
+					class="img-rounded img-responsive center-block" alt="LAYOUT"
+					width="400" height="100" />
+				<p>
+					The model is a spring ui model and the controller is a spring
+					controller bean type. The <i><b>BasicController</b></i> code in the
+					<i>io.pivotal.pcf.ers.recipes</i> package show how the request is
+					mapped to the template. We separated the logic on a <i><b>BasicService</b></i>
+					class in the <i>io.pivotal.pcf.ers.recipes.service</i> package.
+				</p>
+				<p>What you see below is the rendering of the model properties</p>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p>
+							Application Name <b
+								th:text="*{applicationName}?: 'running locally'"></b>
+						</p>
+						<p>
+							The instance index is <b id="instanceIndex"
+								th:text="${instanceIndex}"></b>
+						</p>
+						<p>
+							The instance address is <b id="instanceAddress"
+								th:text="${instanceAddr}"></b>
+						</p>
+
+						<p th:if="${inetaddressLocalhost != null}">
+							Local IP address is <b id="inetaddressLocalhost"
+								th:text="${inetaddressLocalhost}"></b>
+						</p>
+
+						<h4>Services</h4>
+						<p th:if="${applicationServices.isEmpty()}">Using embedded H2
+							DB</p>
+						<p th:each="instance : ${applicationServices}">
+							<b><span th:text="${instance.key}">keyvalue</span></b> <span
+								th:text="${instance.value}">num</span> <br />
+						</p>
+
+						<div id="resultsBlock-health"></div>
+						<div id="resultsBlock-info"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<div class="row">
+
+			<div class="col-md-6"></div>
+
+
+		</div>
+
+
+	</div>
+	<!--  /.PAGE BODY -->
+
+	<footer th:replace="fragments/layout :: footer" class="footer">
+	</footer>
+
+</body>
+
+</html>
+
