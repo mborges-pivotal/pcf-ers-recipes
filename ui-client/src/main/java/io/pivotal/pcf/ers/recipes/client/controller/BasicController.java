@@ -43,7 +43,7 @@ public class BasicController {
 	}
 
 	/**
-	 * UI
+	 * ui
 	 * 
 	 * @param model
 	 * @return
@@ -54,6 +54,20 @@ public class BasicController {
 		log.info("ui page");
 		addAppEnv(model);
 		return "ui";
+	}
+
+	/**
+	 * server-jpa
+	 * 
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/server-jpa")
+	public String serverJpa(Model model) throws Exception {
+		log.info("server-jpa page");
+		addAppEnv(model);
+		return "server-jpa";
 	}
 
 	///////////////////////////////////////
