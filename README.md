@@ -1,34 +1,18 @@
-[![Build Status](https://travis-ci.org/mborges-pivotal/pcf-ers-demo1.svg?branch=master)](https://travis-ci.org/mborges-pivotal/pcf-ers-demo1)
-[ ![Download](https://api.bintray.com/packages/mborges-pivotal/generic/pcf-ers-demo1/images/download.svg) ](https://bintray.com/mborges-pivotal/generic/pcf-ers-demo1/_latestVersion)
-
-# PCF Elastic Runtime Service (ERS) Base Demo
-Base application to demonstrate PCF ERS
-
-## Credits and contributions
-As you all know, we often transform other work into our own. This is all based from Andrew Ripka's [cf-workshop-spring-boot github repo](https://github.com/pivotal-cf-workshop/cf-workshop-spring-boot) with some basic modifications.
-
-## Introduction
-This base application is intended to demonstrate some of the basic functionality of PCF ERS:
-
-* PCF api, target, login, and push
-* PCF environment variables
-  * Spring Cloud Profiles
-* Scaling, self-healing, router and load balancing
-* RDBMS service and application auto-configuration
-* Blue green deployments
+# PCF Elastic Runtime Service (ERS) Recipes
+Simple recipes for building cloud native application using spring boot. 
 
 ## Getting Started
 
+Fork the repository and make sure you have the pre-requisites listed below.
+
 **Prerequisites**
-- [Cloud Foundry CLI](http://info.pivotal.io/p0R00I0eYJ011dAUCN06lR2)
-- [Git Client](http://info.pivotal.io/i1RI0AUe6gN00C010l12J0R)
-- An IDE, like [Spring Tool Suite](http://info.pivotal.io/f00RC0N0lh01eU21IAJ260R)
-- [Java SE Development Kit](http://info.pivotal.io/n0I60i3021AN0JU0le10CRR)
+- [Spring Tool Suite](https://spring.io/tools) - Eclipe based IDE with Spring Boot support
+- [Project Lombok](https://projectlombok.org/) - Helps build entity classes without boilerplate code
 
 **Building**
 ```
-$ git clone [REPO]
-$ cd [REPO]
+$ git clone [YOUR_REPO]
+$ cd [YOUR_REPO]
 $ ./mvnw clean install
 ``` 
 
