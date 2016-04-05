@@ -18,11 +18,32 @@
 
 		<div class="row">
 			<div class="col-md-12">
+				<p>
+					This page calls the <i><b>hello-server</b></i> microservice that
+					leverages spring cloud config to dynamically update the greeting.
+					The UI is leveraging the circuit breaker pattern to handle service
+					availability gracefully
+				</p>
+				<p>
+					The <i><b>hello-server</b></i> is not written to support
+					auto-refresh, so once you commit any updates to the config server
+					repo you'll have to call the refresh endpoint
+				</p>
+				<p>
+					<b>curl -X POST [HELLO_SERVER_URL]/refresh</b>
+				</p>
+				<p>The greeting <i>Error, can't say hello to</i> is the fallback greeting message.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
 				<div class="input-group">
 					<span class="input-group-btn">
-						<button class="btn btn-default" onclick="javascript: sayHello()" type="button">Go!</button> 
-					</span>
-					<input type="text" id="toWho" name="toWho" class="form-control" placeholder="Name to say hello..."></input> 
+						<button class="btn btn-default" onclick="javascript: sayHello()"
+							type="button">Go!</button>
+					</span> <input type="text" id="toWho" name="toWho" class="form-control"
+						placeholder="Name to say hello..."></input>
 				</div>
 				<!-- /input-group -->
 			</div>
@@ -32,8 +53,6 @@
 		<!-- /.row -->
 		<div class="row">
 			<div class="col-md-12">
-
-				<p>Talk about config server and how to refresh information</p>
 
 				<div class="panel panel-default">
 					<div class="panel-body">
