@@ -13,4 +13,4 @@ applications:
 - name: pcf-recipes-ui
   host: pcf-recipes-ui-${random-word}
   path: ui-client/target/ui-client-0.0.1-SNAPSHOT.jar
-  services: []
+  services: [service-registry, circuitbreaker-dashboard]
