@@ -9,12 +9,14 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.pivotal.pcf.ers.recipes.client.controller.BasicController;
+import io.pivotal.pcf.ers.recipes.client.controller.UiController;
 
 /**
  * BasicServices
@@ -24,15 +26,23 @@ import io.pivotal.pcf.ers.recipes.client.controller.BasicController;
  * 
  * This is a RestController and all the UI stuff is done by the MVC controller.
  * 
- * @see BasicController
+ * @see UiController
  * 
  * @author mborges
  *
  */
 @RestController
-public class BasicService {
+public class UiService {
 
-	private Log log = LogFactory.getLog(BasicService.class);
+	private Log log = LogFactory.getLog(UiService.class);
+	
+	@Autowired
+	private SayHelloService sayHelloService;
+
+	@RequestMapping("/hello")
+	public String sayHello(@RequestParam(value = "name", defaultValue = "World") String toWho) {
+		return sayHelloService.sayHello(toWho);
+	}
 
 	/**
 	 * addAppEnv - Retrieve information about the application

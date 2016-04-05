@@ -18,45 +18,30 @@
 
 		<div class="row">
 			<div class="col-md-12">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" onclick="javascript: sayHello()" type="button">Go!</button> 
+					</span>
+					<input type="text" id="toWho" name="toWho" class="form-control" placeholder="Name to say hello..."></input> 
+				</div>
+				<!-- /input-group -->
+			</div>
+			<!-- /.col-md-12 -->
+		</div>
+
+		<!-- /.row -->
+		<div class="row">
+			<div class="col-md-12">
 
 				<p>Talk about config server and how to refresh information</p>
 
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<p>
-							Application Name <b
-								th:text="*{applicationName}?: 'running locally'"></b>
+							Hello <b id="greeting" th:text="${greeting}"></b>
 						</p>
-						<p>
-							The instance index is <b id="instanceIndex"
-								th:text="${instanceIndex}"></b>
-						</p>
-						<p>
-							The instance address is <b id="instanceAddress"
-								th:text="${instanceAddr}"></b>
-						</p>
-
-						<p th:if="${inetaddressLocalhost != null}">
-							Local IP address is <b id="inetaddressLocalhost"
-								th:text="${inetaddressLocalhost}"></b>
-						</p>
-
-						<h4>Services</h4>
-						<p th:if="${applicationServices.isEmpty()}">Using embedded H2
-							DB</p>
-						<p th:each="instance : ${applicationServices}">
-							<b><span th:text="${instance.key}">keyvalue</span></b> <span
-								th:text="${instance.value}">num</span> <br />
-						</p>
-
-						<div id="resultsBlock-health"></div>
-						<div id="resultsBlock-info"></div>
 					</div>
 				</div>
-
-
-
-
 
 			</div>
 		</div>
@@ -67,6 +52,22 @@
 
 	<footer th:replace="fragments/layout :: footer" class="footer">
 	</footer>
+
+	<script>
+		var requestIdCounter = 0;
+		var lastRecievedId = -1;
+
+		function sayHello() {
+			var toWho = $("#toWho").val();
+			var submiturl = "hello?name=" + encodeURIComponent(toWho);
+			$.ajax({
+				url : submiturl
+			}).then(function(data) {
+				console.log(data)
+				$("#greeting").html(data);
+			});
+		}
+	</script>
 
 </body>
 

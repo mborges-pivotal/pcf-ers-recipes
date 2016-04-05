@@ -9,7 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import io.pivotal.pcf.ers.recipes.client.service.BasicService;
+
+import io.pivotal.pcf.ers.recipes.client.service.UiService;
 import io.pivotal.pcf.ers.recipes.client.service.SayHelloService;
 
 /**
@@ -22,12 +23,12 @@ import io.pivotal.pcf.ers.recipes.client.service.SayHelloService;
  *
  */
 @Controller
-public class BasicController {
+public class UiController {
 
-	private Log log = LogFactory.getLog(BasicController.class);
+	private Log log = LogFactory.getLog(UiController.class);
 
 	@Autowired
-	private BasicService attendeeService;
+	private UiService uiService;
 
 	@Autowired
 	private SayHelloService sayHelloService;
@@ -73,6 +74,7 @@ public class BasicController {
 		model.addAttribute("greeting", sayHelloService.sayHello("test"));
 		return "hello-server";
 	}
+	
 
 	/**
 	 * server-jpa
@@ -94,7 +96,7 @@ public class BasicController {
 
 	private void addAppEnv(Model model) throws Exception {
 
-		Map<String, Object> modelMap = attendeeService.addAppEnv();
+		Map<String, Object> modelMap = uiService.addAppEnv();
 		model.addAllAttributes(modelMap);
 	}
 

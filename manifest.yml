@@ -3,13 +3,13 @@ memory: 512MB
 instances: 1
 applications:
 - name: pcf-recipes-server-hello
-  host: pcf-recipes-server-${random-word}
-  path: server-jpa/target/hello-server-0.0.1-SNAPSHOT.jar
+  host: pcf-recipes-server-hello-${random-word}
+  path: hello-server/target/hello-server-0.0.1-SNAPSHOT.jar
   services: [service-registry, config-server]
 - name: pcf-recipes-server-jpa
-  host: pcf-recipes-server-${random-word}
+  host: pcf-recipes-server-jpa-${random-word}
   path: server-jpa/target/server-jpa-0.0.1-SNAPSHOT.jar
-  services: []
+  services: [service-registry]
 - name: pcf-recipes-ui
   host: pcf-recipes-ui-${random-word}
   path: ui-client/target/ui-client-0.0.1-SNAPSHOT.jar
