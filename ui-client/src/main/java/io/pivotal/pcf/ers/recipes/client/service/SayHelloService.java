@@ -24,7 +24,7 @@ public class SayHelloService {
     public String sayHello(String toWho) {
     	    	
         try{
-            return restTemplate.getForObject("https://HELLO-SERVER/hello?name={name}", String.class, toWho);
+            return restTemplate.getForObject("http://HELLO-SERVER/hello?name={name}", String.class, toWho);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

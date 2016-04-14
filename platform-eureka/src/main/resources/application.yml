@@ -1,0 +1,23 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  instance:
+    statusPageUrl: https://${eureka.hostname}/info
+    healthCheckUrl: https://${eureka.hostname}/health
+    homePageUrl: https://${eureka.hostname}/
+    nonSecurePortEnabled: true
+
+---
+spring:
+  profiles: cloud
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true

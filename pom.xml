@@ -15,6 +15,7 @@
     <module>hello-server</module>
     <module>server-jpa</module>
     <module>ui-client</module>
+    <module>platform-eureka</module>
   </modules>
 
 </project>

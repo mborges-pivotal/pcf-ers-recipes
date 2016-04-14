@@ -2,7 +2,6 @@ spring:
   thymeleaf:
     cache: false
 
-# Used by Feign without Eureka - expect the server to run along with client
-hello-server:
-  ribbon:
-    listOfServers: localhost:8081
+ribbon:
+  IsSecure: false
+    
